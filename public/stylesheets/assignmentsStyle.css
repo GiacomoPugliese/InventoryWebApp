@@ -1,0 +1,86 @@
+/* General styles */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
+/* Detail styles */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.row2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    margin-bottom: 2em;
+    min-height: 350px; /*Adjust this height according to your needs*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+/* inventory styles */
+
+table {
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.edit-btn {
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+.delete-btn {
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: pink;
+    color: black;
+}

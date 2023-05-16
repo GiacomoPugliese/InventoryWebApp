@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="/stylesheets/assignmentsStyle.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a  href="/" class="brand-logo" style='padding-left:2%'>
+                <img src="/images/logo.png" alt="Company Logo" class="responsive-img logo" style="max-width:75%">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/">Home</a></li>
+              <li><a href="/inventory">Inventory</a></li>
+              <li><a href="/detail">Common Chemicals</a></li>
+            </ul>
+          </div>
+    </nav>
+
+<h1 style='text-align:center;' class="orange-text">Inventory</h1>
+<p style = 'padding-left:2%; padding-bottom:1%; text-align:center'>Keep track of the names and quantities of the chemicals in your lab all in one place.</p>
+
+<div style='display: flex; justify-content: center;'>
+    <table style='width:70%; text-align:center; margin-bottom:20px;'>
+        <thead>
+            <tr>
+                <th>Chemical Name</th>
+                <th>Chemical Formula</th>
+                <th>Quantity (mass/volume)</th>
+                <th>Safety Concerns</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add your inventory items here -->
+            <tr>
+                <td>Example Chemical</td>
+                <td>H2O</td>
+                <td>50mL</td>
+                <td>No Danger</td>
+                <td>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2 style='text-align:center;' class="orange-text">Add New Chemical</h2>
+<div style='display: flex; justify-content: center;'>
+    <form style="width:50%; padding-bottom:5%">
+        <label for="chemicalName">Chemical Name:</label><br>
+        <input type="text" id="chemicalName" name="chemicalName"><br>
+        <label for="empiricalFormula">Empirical Formula:</label><br>
+        <input type="text" id="empiricalFormula" name="empiricalFormula"><br>
+        <label for="quantity">Qutntity (mass/volume):</label><br>
+        <input type="text" id="quantity" name="quantity"><br>
+        <label for="safetyConcerns">Safety Concerns:</label><br>
+        <select id="safetyConcerns" name="safetyConcerns">
+            <option value="No Danger">No Danger</option>
+            <option value="Flammable">Flammable</option>
+            <option value="Corrosive">Corrosive</option>
+            <option value="Toxic">Toxic</option>
+            <option value="Reactive">Reactive</option>
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12 social-media">
+                    <img src="/images/logo.png" alt="Company Logo" class="responsive-img logo" style="padding-right:5%">
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="your-facebook-link" class="facebook-icon" style="color:white">Facebook</a>
+                        <a href="your-twitter-link" class="twitter-icon" style="color:white">Twitter</a>
+                        <a href="your-instagram-link" class="instagram-icon" style="color:white">Instagram</a>
+                        <a href="your-linkedin-link" class="linkedin-icon" style="color:white">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Auto-initialize Materialize elements (Note - more specific initialization may be required for certain elements)-->
+    <script src="/scripts/materializeAutoInit.js"></script>
+</body>
+</html>
+
