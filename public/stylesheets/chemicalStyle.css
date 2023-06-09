@@ -1,0 +1,29 @@
+form {
+    border: solid 2px lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form:focus-within {
+    border-color: orange;
+}
+
+tr:hover {
+    background-color: #F0F0F0;
+}
+
+/* The model/modal styling */
+
+.modal {
+    border: solid 2px lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.modal:focus-within {
+    border-color: orange;
+}
+
+.modal-content tr:hover {
+    background-color: #F0F0F0;
+}

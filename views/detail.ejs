@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Inventory</title>
+
+    <!-- Materialize CSS and Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Additional custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/chemicalStyle.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a  href="/" class="brand-logo" style='padding-left:2%'>
+                <img src="/images/logo.png" alt="Company Logo" class="responsive-img logo" style="max-width:75%">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/">Home</a></li>
+              <li><a href="/inventory">Inventory</a></li>
+            </ul>
+          </div>
+    </nav>
+    
+    <!-- Actual page content! -->
+    <div class="container">
+        <div class="section flow-text" id="details">
+            <h1><%= chem.name %></h1>
+            <table>
+                <tr>
+                    <th>Empirical Formula:</th>
+                    <td><%= chem.empiricalFormula %></td>
+                </tr>
+                <tr>
+                    <th>Quantity:</th>
+                    <td><%= chem.quantity %></td>
+                </tr>
+                <tr>
+                    <th>Hazard Label:</th>
+                    <td><%= chem.hazardLabel %></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" id="controls">
+            <a class="btn-large waves-effect waves-light orange left modal-trigger" href="#edit">
+                <i class="material-icons right">edit</i>
+                Edit
+            </a>
+            <a class="btn-large waves-effect waves-light red right">
+                <i class="material-icons right">delete</i>
+                Delete
+            </a>
+        </div>
+
+
+        <div class="modal" id="edit">
+
+            <div class="modal-content">
+
+                <h2>Edit item:</h2>
+                <form id="updateForm">
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <input type="text" id="nameInput" name="name" class="validate" data-length="32" required value="<%= chem.name %>">
+                            <label for="nameInput">Chemical name:</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input type="text" id="formulaInput" name="empiricalFormula" class="validate" value=<%= chem.empiricalFormula %>>
+                            <label for="formulaInput">Empirical Formula:</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" id="quantityInput" name="quantity" class="validate" value="<%= chem.quantity %>">
+                            <label for="quantityInput">Quantity:</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" id="hazardInput" name="hazardLabel" value="<%= chem.hazardLabel %>">
+                            <label for="hazardInput">Hazard Label:</label>
+                        </div>
+                    </div>
+                </form>
+                <!-- A section for the footer of the modal -->
+                <div class="modal-footer">
+                    <!-- Since the submit button is not within the form, it must have the form attribute specified-->
+                    <button class="btn waves-effect waves-light " type="submit" form="updateForm">
+                        <i class="material-icons right">send</i>
+                        Submit
+                    </button>
+                    <button class="modal-close waves-effect waves-green btn-flat" >Never Mind</button>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Auto-initialize Materialize elements (Note - more specific initialization may be required for certain elements)-->
+    <script src="/scripts/materializeAutoInit.js"></script>
+
+</body>
+
+</html>
