@@ -10,6 +10,8 @@ app.set( "view engine", "ejs" );
 
 app.use(logger("dev"));
 app.use(express.static(__dirname + '/public'));
+// Configure Express to parse URL-encoded POST request bodies (traditional forms)
+app.use( express.urlencoded({ extended: false }) );
 
 // define a route for the default home page
 app.get( "/", ( req, res ) => {
@@ -64,6 +66,72 @@ app.get("/inventory/:id", (req, res) => {
     });
 });
 
+
+// define a route for inventory item DELETE
+const delete_chemical_sql = `
+    DELETE 
+    FROM
+        chemicals
+    WHERE
+        chemicalId = ?
+`
+app.get("/inventory/:id/delete", ( req, res ) => {
+    db.execute(delete_chemical_sql, [req.params.id], (error, results) => {
+        if (DEBUG)
+            console.log(error ? error : results);
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            res.redirect("/inventory");
+        }
+    });
+});
+
+// define a route for inventory item CREATE
+const create_inventory_sql = `
+    INSERT INTO chemicals 
+        (name, empiricalFormula, quantity, hazardLabel) 
+    VALUES 
+        (?, ?, ?, ?);
+`
+
+app.post("/inventory", ( req, res ) => {
+    db.execute(create_inventory_sql, [req.body.name, req.body.empiricalFormula, req.body.quantity, req.body.hazardLabel], (error, results) => {
+        if (DEBUG)
+            console.log(error ? error : results);
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            //results.insertId has the primary key (chemicalId) of the newly inserted row.
+            res.redirect(`/inventory`);
+        }
+    });
+});
+
+// define a route for inventory item UPDATE
+const update_chemical_sql = `
+    UPDATE
+        chemicals
+    SET
+        name = ?,
+        empiricalFormula = ?,
+        quantity = ?,
+        hazardLabel = ?
+    WHERE
+        chemicalId = ?
+`
+
+app.post("/inventory/:id", ( req, res ) => {
+    db.execute(update_chemical_sql, [req.body.name, req.body.empiricalFormula, req.body.quantity, req.body.hazardLabel, req.params.id], (error, results) => {
+        if (DEBUG)
+            console.log(error ? error : results);
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            res.redirect(`/inventory/${req.params.id}`);
+        }
+    });
+});
 
 
 // start the server
