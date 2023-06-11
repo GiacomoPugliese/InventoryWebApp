@@ -58,10 +58,11 @@
                             <i class="material-icons right"></i>
                             Edit
                         </a>
-                        <a class="btn-small waves-effect waves-light red">
+                        <a class="btn-small waves-effect waves-light red" href="/inventory/<%= inventoryList[i].chemicalId %>/delete">
                             <i class="material-icons right"></i>
                             Delete
                         </a>
+                        
                     </td>
                 </tr>
                 <% } %>
@@ -71,10 +72,10 @@
 
     <div class="section" id="add">
         <h2>Add a new Chemical:</h2>
-        <form id="addForm">
+        <form id="addForm" method="post" action="inventory">
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" id="chemicalNameInput" name="chemicalName" class="validate" data-length="32" required>
+                    <input type="text" id="chemicalNameInput" name="name" class="validate" data-length="32" required>
                     <label for="chemicalNameInput">Chemical Name:</label>
                 </div>
                 <div class="input-field col s6">
@@ -88,7 +89,7 @@
                 </div>
 
                 <div class="input-field col s6">
-                    <select id="safetyConcernsInput" name="safetyConcerns" required>
+                    <select id="safetyConcernsInput" name="hazardLabel" required>
                         <option value="" disabled selected>Choose safety concerns</option>
                         <option value="No Danger">No Danger</option>
                         <option value="Flammable">Flammable</option>
